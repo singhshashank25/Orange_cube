@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import ast
 import nltk
+import json
 
 movies = pd.read_csv('./static/dataset/tmdb_5000_movies.csv')
 credits = pd.read_csv('./static/dataset/tmdb_5000_credits.csv') 
@@ -53,7 +54,7 @@ movies['cast'] = movies['cast'].apply(collapse)
 movies['genres'] = movies['genres'].apply(collapse)
 movies['keywords'] = movies['keywords'].apply(collapse)
 
-movies_tags = movies ## ###
+movies_tags = movies ## ### export
 
 movies_tags['overview'] = movies_tags['overview'].apply(lambda x:x.split())
 # print(movies_tags['overview'])
@@ -96,6 +97,13 @@ vector = cv.fit_transform(movies_tags['tags']).toarray()
 
 from sklearn.metrics.pairwise import cosine_similarity
 
-similarity = cosine_similarity(vector)
+similarity = cosine_similarity(vector) #have to export
 
-# print(similarity)
+# print(type(similarity))
+
+movies_export = movies[['movie_id','title','overview']]
+
+movies_export = movies_export.to_json(orient = 'split')
+with open('movies_info.json','w') as json_file:
+    json.dump(movies_export,json_file)
+
