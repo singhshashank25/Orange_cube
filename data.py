@@ -3,6 +3,7 @@ import pandas as pd
 import ast
 import nltk
 import json
+import pickle
 
 movies = pd.read_csv('./static/dataset/tmdb_5000_movies.csv')
 credits = pd.read_csv('./static/dataset/tmdb_5000_credits.csv') 
@@ -101,9 +102,58 @@ similarity = cosine_similarity(vector) #have to export
 
 # print(type(similarity))
 
-movies_export = movies[['movie_id','title','overview']]
+# movies_export = movies[['movie_id','title','overview']]
 
-movies_export = movies_export.to_json(orient = 'split')
-with open('movies_info.json','w') as json_file:
-    json.dump(movies_export,json_file)
+movie_id_list = []
+movie_id_list = movies['movie_id'] #export
+movie_id_list = movie_id_list.to_json();
+# print(movie_id_list)
+
+movie_id_action = []            #export
+movie_id_adventure = []         #export
+movie_id_thriller = []          #export
+
+for x in range(len(movies)):
+    try:
+        for element in movies.genres[x]:
+            if "Action" in element:
+                movie_id_action.append(movies.movie_id[x])
+            if "Adventure" in element:
+                movie_id_adventure.append(movies.movie_id[x])
+            if "Thriller" in element:
+                movie_id_thriller.append(movies.movie_id[x])
+    except:
+        print("Error occured!")
+
+# print(type(movie_id_action))
+# movie_id_action= movie_id_action.tolist()
+# movie_id_adventure = movie_id_adventure
+# movie_id_thriller = movie_id_thriller
+
+
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NpEncoder, self).default(obj)
+
+obj_json = {
+    1:movie_id_list,
+    2:movie_id_action,
+    3:movie_id_adventure,
+    4:movie_id_thriller
+}
+
+
+with open("movie_list.json", "w") as fp:
+    json_string =  json.dump(obj_json,fp,indent=4,cls=NpEncoder)
+
+
+# pickle.dump(movies,open('movie_list.pkl','wb'))
+# pickle.dump(similarity,open('similarity.pkl','wb'))
+
 

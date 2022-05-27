@@ -11,6 +11,7 @@
 // Cron scheduler ------------------------------------ Line 1075-1118
 
 
+const nodePickle = require('node-pickle');
 const express = require('express');
 const app = express();
 const bcrypt = require('bcryptjs')
@@ -221,6 +222,13 @@ function mail(from, to, meet, type) {
 // ---------------------------------------------------------------------
 
 app.get('/', function(req, res) {
+
+  const PythonShell = require('python-shell').PythonShell;
+
+  PythonShell.run('./script.py', null, function (err) {
+    if (err) throw err;
+    // console.log('finished');
+  });
   req.session.error = '';
   res.render('home', {
     isAuth: req.session.isAuth,
@@ -1105,6 +1113,7 @@ cron.schedule('*/1 * * * *', function() {
   });
 })
 
-server.listen(process.env.PORT || 3000, function() {
-  console.log('Server started at port 3000')
+server.listen(process.env.PORT || 3008, function() {
+  console.log('Server started at port 3008');
 })
+
