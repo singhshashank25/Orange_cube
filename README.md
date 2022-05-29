@@ -82,7 +82,7 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 <h4>Home page</h4>
 <img src = "./static/images/homepage1.png">
 <img src = "./static/images/hostandjoin.png">
-<h4>search<h4>
+<h4>Search<h4>
 <img src = "./static/images/recomendation.png">
 <h4>Signup<h4>
 <img src = "./static/images/signup.png">
