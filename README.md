@@ -59,8 +59,7 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 
 
 # Workflow
-<h2>Live Map Page</h2>
-<img src = "./static/img/proj3.jpeg">
+<img src = "./static/images/workflow.jpeg">
 
 
 
@@ -80,8 +79,17 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 
 
 ## Images :
-<h2>Live Map Page</h2>
-<img src = "./public/img/proj3.jpeg">
+<h2>Home page</h2>
+<img src = "./static/images/homepage1.png">
+<img src = "./static/images/hostandjoin.png">
+<h2>search<h2>
+<img src = "./static/images/recomendation.png">
+<h2>Signup<h2>
+<img src = "./static/images/signup.png">
+  
+<h2>Dashboard<h2>
+<img src = "./static/images/historyrec.png">
+<img src = "./static/images/grouprec.png">
 
 
 ## Troubleshooting:
@@ -90,8 +98,7 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 
 
 ## Credits:
-- Mentors - Mr. Pramit mallic
+- Mentors - Mr. Pramit Mallic
 - Developer - [Shashank singh](https://github.com/singhshashank25)
 
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
