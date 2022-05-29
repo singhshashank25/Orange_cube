@@ -13,11 +13,11 @@ let movie_id=""
          .then((data)=>{
           
             data_obj = data[2];
-            console.log(data_obj)
+            // console.log(data_obj)
             for(let i=0;i<3;i++){
             let x =Math.floor((Math.random() * 50));
 
-            console.log(data_obj[x])
+            // console.log(data_obj[x])
             movie_id = data_obj[x]
           
             tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -28,10 +28,10 @@ let movie_id=""
             xhr.onload = function(){
                 //console.log();
                 let file = JSON.parse(this.responseText);
-                console.log(file)
+                // console.log(file)
                   let item = `
-                  <div class="col-md-4 mb-3">
-                  <div class="card">  
+                  <div class="col-sm-4 mb-3">
+                  <div class="card w-90">  
                       <img class="img-fluid" alt="100%x280" src=https://image.tmdb.org/t/p/w500${file.poster_path}>
 
                       <div class="card-body">
@@ -55,7 +55,7 @@ let movie_id=""
               for(let i=0;i<3;i++){
                 let x =Math.floor((Math.random() * 50));
     
-                console.log(data_obj[x])
+                // console.log(data_obj[x])
                 movie_id = data_obj[x]
               
                 tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -64,9 +64,9 @@ let movie_id=""
                 xhr.open("GET",tmdb_api,false);
            
                 xhr.onload = function(){
-                    //console.log();
+                    // console.log();
                     let file = JSON.parse(this.responseText);
-                    console.log(file)
+                    // console.log(file)
                       let item = `
                       <div class="col-md-4 mb-3">
                       <div class="card">  
@@ -92,7 +92,7 @@ let movie_id=""
                   for(let i=0;i<3;i++){
                     let x =Math.floor((Math.random() * 50));
         
-                    console.log(data_obj[x])
+                    // console.log(data_obj[x])
                     movie_id = data_obj[x]
                   
                     tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -101,9 +101,9 @@ let movie_id=""
                     xhr.open("GET",tmdb_api,false);
                
                     xhr.onload = function(){
-                        //console.log();
+                        // console.log();
                         let file = JSON.parse(this.responseText);
-                        console.log(file)
+                        // console.log(file)
                           let item = `
                           <div class="col-md-4 mb-3">
                           <div class="card">  
@@ -156,7 +156,7 @@ let movie_id=""
               for(let i=0;i<3;i++){
               let x =Math.floor((Math.random() * 50));
   
-              console.log(data_obj[x])
+              // console.log(data_obj[x])
               movie_id = data_obj[x]
             
               tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -165,9 +165,9 @@ let movie_id=""
               xhr.open("GET",tmdb_api,false);
          
               xhr.onload = function(){
-                  //console.log();
+                  // console.log();
                   let file = JSON.parse(this.responseText);
-                  console.log(file)
+                  // console.log(file)
                     let item = `
                     <div class="col-md-4 mb-3">
                     <div class="card">  
@@ -194,7 +194,7 @@ let movie_id=""
                 for(let i=0;i<3;i++){
                   let x =Math.floor((Math.random() * 50));
       
-                  console.log(data_obj[x])
+                  // console.log(data_obj[x])
                   movie_id = data_obj[x]
                 
                   tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -203,11 +203,11 @@ let movie_id=""
                   xhr.open("GET",tmdb_api,false);
              
                   xhr.onload = function(){
-                      //console.log();
+                      // console.log();
                       let file = JSON.parse(this.responseText);
-                      console.log(file)
+                      // console.log(file)
                         let item = `
-                        <div class="col-md-4 mb-3">
+                        <div class="col-sm-4 mb-3">
                         <div class="card">  
                             <img class="img-fluid" alt="100%x280" src=https://image.tmdb.org/t/p/w500${file.poster_path}>
       
@@ -231,7 +231,7 @@ let movie_id=""
                     for(let i=0;i<3;i++){
                       let x =Math.floor((Math.random() * 50));
           
-                      console.log(data_obj[x])
+                      // console.log(data_obj[x])
                       movie_id = data_obj[x]
                     
                       tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -240,9 +240,9 @@ let movie_id=""
                       xhr.open("GET",tmdb_api,false);
                  
                       xhr.onload = function(){
-                          //console.log();
+                          // console.log();
                           let file = JSON.parse(this.responseText);
-                          console.log(file)
+                          // console.log(file)
                             let item = `
                             <div class="col-md-4 mb-3">
                             <div class="card">  
@@ -291,7 +291,7 @@ let movie_id=""
                 for(let i=0;i<3;i++){
                 let x =Math.floor((Math.random() * 50));
     
-                console.log(data_obj[x])
+                // console.log(data_obj[x])
                 movie_id = data_obj[x]
               
                 tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -300,9 +300,9 @@ let movie_id=""
                 xhr.open("GET",tmdb_api,false);
            
                 xhr.onload = function(){
-                    //console.log();
+                    // console.log();
                     let file = JSON.parse(this.responseText);
-                    console.log(file)
+                    // console.log(file)
                       let item = `
                       <div class="col-md-4 mb-3">
                       <div class="card">  
@@ -329,7 +329,7 @@ let movie_id=""
                   for(let i=0;i<3;i++){
                     let x =Math.floor((Math.random() * 50));
         
-                    console.log(data_obj[x])
+                    // console.log(data_obj[x])
                     movie_id = data_obj[x]
                   
                     tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -338,9 +338,9 @@ let movie_id=""
                     xhr.open("GET",tmdb_api,false);
                
                     xhr.onload = function(){
-                        //console.log();
+                        // console.log();
                         let file = JSON.parse(this.responseText);
-                        console.log(file)
+                        // console.log(file)
                           let item = `
                           <div class="col-md-4 mb-3">
                           <div class="card">  
@@ -366,7 +366,7 @@ let movie_id=""
                       for(let i=0;i<3;i++){
                         let x =Math.floor((Math.random() * 50));
             
-                        console.log(data_obj[x])
+                        // console.log(data_obj[x])
                         movie_id = data_obj[x]
                       
                         tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
@@ -375,9 +375,9 @@ let movie_id=""
                         xhr.open("GET",tmdb_api,false);
                    
                         xhr.onload = function(){
-                            //console.log();
+                            // console.log();
                             let file = JSON.parse(this.responseText);
-                            console.log(file)
+                            // console.log(file)
                               let item = `
                               <div class="col-md-4 mb-3">
                               <div class="card">  

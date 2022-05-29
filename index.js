@@ -71,6 +71,8 @@ app.use(session({
 }))
 
 
+
+
 // ---------------------------------------------------------------------
 // -------------------------------SCHEMAS-------------------------------
 // ---------------------------------------------------------------------
@@ -139,6 +141,10 @@ let UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  history: {
+    type: String,
+    required: false,
+  },
   groups: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Group'
@@ -190,19 +196,19 @@ function mail(from, to, meet, type) {
     port: 465,
     secure: true, // use TLS
     auth: {
-      user: 'engagekeepintouch@gmail.com',
+      user: 'engageorangecube@gmail.com',
       pass: process.env.PASSWORD
     }
   });
   let message = ""
   if (type == "reminder") {
-    message += `Dear ` + to.username + `<br>This mail is to remind you about the meet ` + meet.meetname + ` .<br>` + meet.meetdetails + `<br>Timings: ` + meet.startdate + ` ` + meet.starttime + `<br> <a href="https://engage-keep-in-touch.herokuapp.com/meet/` + meet._id + `/` + meet.meetname + `">MeetLink</a><br>Regards <br>` + meet.meethost
+    message += `Dear ` + to.username + `<br>This mail is to remind you about the meet ` + meet.meetname + ` .<br>` + meet.meetdetails + `<br>Timings: ` + meet.startdate + ` ` + meet.starttime + `<br> <a href="https://localhost:3000/meet/` + meet._id + `/` + meet.meetname + `">MeetLink</a><br>Regards <br>` + meet.meethost
   } else if (type == "invite") {
-    message += `Dear ` + to.username + `<br>This mail is to invite you about the meet ` + meet.meetname + ` .<br>` + meet.meetdetails + `<br>Timings: ` + meet.startdate + ` ` + meet.starttime + `<br> <a href="https://engage-keep-in-touch.herokuapp.com/meet/` + meet._id + `/` + meet.meetname + `">MeetLink</a><br> Regards <br>` + meet.meethost
+    message += `Dear ` + to.username + `<br>This mail is to invite you about the meet ` + meet.meetname + ` .<br>` + meet.meetdetails + `<br>Timings: ` + meet.startdate + ` ` + meet.starttime + `<br> <a href="https://localhost:3000/meet/` + meet._id + `/` + meet.meetname + `">MeetLink</a><br> Regards <br>` + meet.meethost
   } else if (type == "cancel") {
     message += `Dear ` + to.username + `<br>This is to inform you with regret that the meet ` + meet.meetname + ` is cancelled.<br> Regards <br>` + from.username
   } else if (type == "undocancel") {
-    message += `Dear ` + to.username + `<br>This is to inform you that the event ` + meet.meetname + ` is not cancelled. <br>` + meet.meetdetails + `<br>Timings: ` + meet.startdate + ` ` + meet.starttime + `<br> <a href="https://engage-keep-in-touch.herokuapp.com/meet/` + meet._id + `/` + meet.meetname + `">MeetLink</a><br> Regards <br>` + from.username
+    message += `Dear ` + to.username + `<br>This is to inform you that the event ` + meet.meetname + ` is not cancelled. <br>` + meet.meetdetails + `<br>Timings: ` + meet.startdate + ` ` + meet.starttime + `<br> <a href="https://localhost:3000/meet/` + meet._id + `/` + meet.meetname + `">MeetLink</a><br> Regards <br>` + from.username
   }
   let mailDetails = {
     to: to.email,
@@ -223,12 +229,14 @@ function mail(from, to, meet, type) {
 
 app.get('/', function(req, res) {
 
-  const PythonShell = require('python-shell').PythonShell;
+  // const PythonShell = require('python-shell').PythonShell;
 
-  PythonShell.run('./script.py', null, function (err) {
-    if (err) throw err;
-    // console.log('finished');
-  });
+  // PythonShell.run('./script.py', null, function (err) {
+  //   if (err) throw err;
+  //   // console.log('finished');
+  // });
+
+  
   req.session.error = '';
   res.render('home', {
     isAuth: req.session.isAuth,
@@ -374,6 +382,7 @@ app.get('/dashboard', isAuth, function(req, res) {
         members: [],
         user: user,
         message: message,
+        // history: history,
         isAuth: req.session.isAuth,
         title: 'Dashboard | '
       })
@@ -885,13 +894,13 @@ app.post('/contactus', function(req, res) {
     port: 465,
     secure: true, // use TLS
     auth: {
-      user: 'engagekeepintouch@gmail.com',
+      user: 'engageorangecube@gmail.com',
       pass: process.env.PASSWORD
     }
   });
 
   let mailDetails = {
-    to: 'engagekeepintouch@gmail.com',
+    to: 'engageorangecube@gmail.com',
     subject: req.body.subject,
     html: req.body.feedback
   };
@@ -913,6 +922,7 @@ app.post('/signup', async function(req, res) {
   let username = req.body.username;
   let password = req.body.password;
   let repassword = req.body.repassword;
+  console.log(email,username,password)
   if (email == "" || username == "" || password == "") { //Input cannot be blank
     return res.render('signup', {
       isAuth: req.session.isAuth,
@@ -927,17 +937,17 @@ app.post('/signup', async function(req, res) {
       title: 'Sign Up | '
     })
   }
-  let foundUser = await User.findOne({ //Shouldn't be an existing user
-    email: email
-  });
-  if (foundUser) {
-    req.session.error = ""
-    return res.render('signup', {
-      isAuth: req.session.isAuth,
-      message: "User Already Exists!",
-      title: 'Sign Up | '
-    });
-  }
+  // let foundUser = await User.findOne({ //Shouldn't be an existing user
+  //   email: email
+  // });
+  // if (foundUser) {
+  //   req.session.error = ""
+  //   return res.render('signup', {
+  //     isAuth: req.session.isAuth,
+  //     message: "User Already Exists!",
+  //     title: 'Sign Up | '
+  //   });
+  // }
   const hashedPsw = await bcrypt.hash(password, 5); //hashing
 
   const user = new User({
@@ -1113,7 +1123,56 @@ cron.schedule('*/1 * * * *', function() {
   });
 })
 
-server.listen(process.env.PORT || 3008, function() {
-  console.log('Server started at port 3008');
+app.post('/search', (req, res) => {
+  
+  // console.log(req.body.text)
+  const spawn = require("child_process").spawn;
+  const pythonProcess = spawn('python3',["./script.py", req.body.text]);
+    pythonProcess.stdout.on('data', (data) => {
+    console.log(data.toString())
+    });
+    // Handle error output
+    pythonProcess.stderr.on('data', (data) => {
+      // As said before, convert the Uint8Array to a readable string.
+      console.log(String.fromCharCode.apply(null, data));
+    });
+
+    pythonProcess.on('exit', (code) => {
+      console.log("Process quit with code : " + code);
+    });
+
+    let user = User.findOne({
+      _id: req.session.user,
+    }, function(err, user) {
+      if (!user) {
+        res.render('search', {
+          isAuth: req.session.isAuth,
+          title: req.body.text
+        });
+      }
+      else{
+        let hist = req.body.text;
+        // var newvalues = { $set: {"history": req.body.text } };
+        // user.updateOne({name : req.params.name}, newvalues, function (err, data) {
+        if (err) throw err;
+          // });
+          User.updateOne(
+            { "_id": req.session.user },
+            { $set: { "history": req.body.text} });
+          console.log(user.history);
+          res.render('search', {
+            isAuth: req.session.isAuth,
+            title: req.body.text
+          });
+      }
+    })
+  
+    req.session.error = '';
+    
+})
+
+const PORT = process.env.PORT || 5000
+server.listen(PORT, function() {
+  console.log(`Server started at port ${PORT}`);
 })
 

@@ -56,6 +56,7 @@ movies['genres'] = movies['genres'].apply(collapse)
 movies['keywords'] = movies['keywords'].apply(collapse)
 
 movies_tags = movies ## ### export
+movies_exp = movies
 
 movies_tags['overview'] = movies_tags['overview'].apply(lambda x:x.split())
 # print(movies_tags['overview'])
@@ -99,10 +100,9 @@ vector = cv.fit_transform(movies_tags['tags']).toarray()
 from sklearn.metrics.pairwise import cosine_similarity
 
 similarity = cosine_similarity(vector) #have to export
-
+# already done ################################################################
 # print(type(similarity))
 
-# movies_export = movies[['movie_id','title','overview']]
 
 movie_id_list = []
 movie_id_list = movies['movie_id'] #export
@@ -149,11 +149,14 @@ obj_json = {
 }
 
 
+
+
 with open("movie_list.json", "w") as fp:
     json_string =  json.dump(obj_json,fp,indent=4,cls=NpEncoder)
 
+################################################################################3
 
-# pickle.dump(movies,open('movie_list.pkl','wb'))
-# pickle.dump(similarity,open('similarity.pkl','wb'))
+pickle.dump(movies,open('movie_list.pkl','wb'))
+pickle.dump(similarity,open('similarity.pkl','wb'))
 
 
