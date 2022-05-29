@@ -1,6 +1,6 @@
 # **Orange_Cube**
 
-Orange_Cube is a web development project. It is designed and developed by Shashank Singh for Microsoft Engage. It is a project related to movie recommendation. Movie is recommended on the basis of search history and it also recommends 6 other movies which are of the dame genre as of the one we had searched. Additional feature is that two or more people can create room together and can enjoy hte movie together.
+Orange_Cube is a web development project. It is designed and developed by Shashank Singh for Microsoft Engage. It is a project related to movie recommendation. Movie is recommended on the basis of search history and it also recommends 6 other movies which are of the same genre as of the one we had searched. Additional feature is that two or more people can create room together and can enjoy hte movie together.
 
 
 # To start the app
@@ -21,11 +21,11 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 - Credits
 
 # Features:
-1. **Search Movie** : Option is provided to Search movie in the website which return 6 related movie including searched one
+1. **Search Movie** : Option is provided to Search movie in the website which return 6 related movies including searched one
 2. **Search Based Recommendation** : It recommends related moive to the login user according to his/her search history
-4. **Populatiy based Action Movie Recommendation** : Recommends action movie to the user on the basis of the popularity of the movie
-4. **Populatiy based Thriller Movie Recommendation** : Recommends thriller movie to the user on the basis of the popularity of the movie
-4. **Populatiy based Adventure Movie Recommendation** : Recommends adventurous movie to the user on the basis of the popularity of the movie
+4. **Popularity based Action Movie Recommendation** : Recommends action movie to the user on the basis of the popularity of the movie
+4. **Popularity based Thriller Movie Recommendation** : Recommends thriller movie to the user on the basis of the popularity of the movie
+4. **Popularity based Adventure Movie Recommendation** : Recommends adventurous movie to the user on the basis of the popularity of the movie
 5. **Create Meets** : User can create room in which two or more member can come together and watch movie and can chat simultaneously
 5. **Video Conversation** : 2+ people can have a video conversation in this website about moive or something
 6. **Turn off / on Camera** : Users are given the option to either turn on or off their webcam during call
@@ -58,9 +58,14 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 9. **Pickle** - For creating Model file
 
 
+# Workflow
+<h2>Live Map Page</h2>
+<img src = "./static/img/proj3.jpeg">
 
 
-# Problem Faced
+
+
+# Challenges
 - **cold-start problelm** : Recommendation for new user and new movies was a problem for me. So for new user I recommended most popular movie and new movie are recommend to user according to genres and keyword
 - **integration of python and Nodejs** : using "require("child_process").spawn" I got rid of this
 
@@ -72,6 +77,11 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 - convert whole thing in vector using countVectorizer
 - store distance of one user with all other user in matrix using cosine_similarity
 - Then recommend most similar user
+
+
+## Images :
+<h2>Live Map Page</h2>
+<img src = "./public/img/proj3.jpeg">
 
 
 ## Troubleshooting:
