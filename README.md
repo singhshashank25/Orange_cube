@@ -1,7 +1,7 @@
 Orange_Cube
 # Project Title
 
-Orange_Cube which is a web development project that is designed and developed by Shashank Singh for Microsoft Engage through which movie is recommended on basis of search history and it also recommended 6 related movie for search movie and two or more people can create room together and enjoy movie and much more.
+Orange_Cube is a web development project. It is designed and developed by Shashank Singh for Microsoft Engage. It is a project related to movie recommendation. Movie is recommended on the basis of search history and it also recommends 6 other movies which are of the dame genre as of the one we had searched. Additional feature is that two or more people can create room together and can enjoy hte movie together.
 
 
 #To start the app
@@ -22,21 +22,21 @@ Orange_Cube which is a web development project that is designed and developed by
 - Credits
 
 # Features:
-1. **Search Movie** : There is option to Search movie in this website which return 6 related movie including searched one
-2. **Search Based Recommendation** : It recommend related moive to the login user according to his/her search history
-4. **Populatiy based Action Movie Recommendation** : For any user to website can check popular Action moive
-4. **Populatiy based Thriller Movie Recommendation** : For any user to website can check popular Thriller moive
-4. **Populatiy based Adventure Movie Recommendation** : For any user to website can check popular Adventure moive
-5. **Create Meets** : User can create room under which two or more Member come together and watch movie, discuss about something
+1. **Search Movie** : Option is provided to Search movie in the website which return 6 related movie including searched one
+2. **Search Based Recommendation** : It recommends related moive to the login user according to his/her search history
+4. **Populatiy based Action Movie Recommendation** : Recommends action movie to the user on the basis of the popularity of the movie
+4. **Populatiy based Thriller Movie Recommendation** : Recommends thriller movie to the user on the basis of the popularity of the movie
+4. **Populatiy based Adventure Movie Recommendation** : Recommends adventurous movie to the user on the basis of the popularity of the movie
+5. **Create Meets** : User can create room in which two or more member can come together and watch movie and can chat simultaneously
 5. **Video Conversation** : 2+ people can have a video conversation in this website about moive or something
-6. **Turn off / on Camera** : Users can choose to show or hide themselves from others during a call and only show initials of their name
-6. **Mute / Unmute Audio** : Users can choose to speak or not speak and avoid causing chaos in a call
-7. **Mute All Member** : Users can mute everyone in the call, excluding themselves while talking so to avoid interruptions
+6. **Turn off / on Camera** : Users are given the option to either turn on or off their webcam during call
+6. **Mute / Unmute Audio** : Users are given the option to either turn on or off their mic during call
+7. **Mute All Member** : A user can mute other users in the call to avoid unwanted sound
 8. **Name on Hovering** : While hovering on a video box one can see the Member name
-20. **Chat** : Users can chat in the call to communicate when not able to speak
+20. **Chat** : While watching the movie , users can chat simultanoeously
 11. **Sign Up / Log In** : If user watch moives regularly and hosts regular room and want to store the chats, list of created room and quickly remind people of the room then they can log in
 52. **Reminders** : Server automatically remind users about their room at the time of their room
-22. **Contact Us** : User can contact us and give feedback that will help me to better my project
+22. **Contact Us** : User can contact us and give feedback which will help me 
 23. **Help Page** : A help page is provided where every question regarding the use of the website is provided
 25. **Create Groups / Join Groups** : User can create many groups, each with a key to keep the group private and secure from unwanted people
 24. **Group Details in Group Dashboard** : In the dashboard, one can see the details such as key and members so that if one forgets the key, they can find it there and also know who all are a part of the group
@@ -62,14 +62,14 @@ Orange_Cube which is a web development project that is designed and developed by
 
 
 # Problem Faced
-- **cold-start problelm** : Recommendation for new user and new movies is Problem for me. So for new user i recommend most popular movie and new movie are recommend to user according to genres and keyword
-- **integration of python and Nodejs** : using "require("child_process").spawn" i get rid of this
+- **cold-start problelm** : Recommendation for new user and new movies was a problem for me. So for new user I recommended most popular movie and new movie are recommend to user according to genres and keyword
+- **integration of python and Nodejs** : using "require("child_process").spawn" I got rid of this
 
 
 
 # **Future**
 **Recommend similar choice user** :- Recommendation of user those who watch moive of similar genres and keyword.
-- i plan to add genres and keyword of all the searched movie one one user and do similarly for others.
+- I plan to add genres and keyword of all the searched movie 
 - convert whole thing in vector using countVectorizer
 - store distance of one user with all other user in matrix using cosine_similarity
 - Then recommend most similar user
