@@ -8,6 +8,8 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 - npm install
 - node index
 
+## Video link
+To watch the video [Click Here](https://drive.google.com/file/d/1oUOrfecxL50xUH8zevg6jCCmQMa-aS1v/view?usp=drivesdk)
 
 ## Table of Contents:
 
