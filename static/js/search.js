@@ -13,7 +13,7 @@ async function predict_action() {
       // console.log(data_obj)
       for (let i = 0; i < 3; i++) {
         movie_id = data_obj[i]
-        console.log(movie_id)
+        // console.log(movie_id)
         tmdb_api = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=d4139ea8b8e52b7b30c4608c46d996e7`
 
         const xhr = new XMLHttpRequest;

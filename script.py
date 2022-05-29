@@ -6,15 +6,18 @@ import numpy as np
 
 
 def recommend(movie):
-    index = movies[movies['title'] == movie].index[0]
-    # print(movies)
-    distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
-    recommended_movie_id = []
-    for i in distances[1:7]:
-        # fetch the movie poster
-        recommended_movie_id.append(movies.iloc[i[0]].movie_id)
-        # recommended_movie_names.append(movies.iloc[i[0]].title)
-    return recommended_movie_id
+    try:
+        index = movies[movies['title'] == movie].index[0]
+        # print(movies)
+        distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
+        recommended_movie_id = []
+        for i in distances[1:20]:
+            # fetch the movie poster
+            recommended_movie_id.append(movies.iloc[i[0]].movie_id)
+            # recommended_movie_names.append(movies.iloc[i[0]].title)
+        return recommended_movie_id
+    except :
+        print("Movie not found")
 
 # print("I'm running here 1 :/")
 # sys.stdout.flush()
@@ -28,7 +31,7 @@ obj= {
     1:data
 }
 
-print(data)
+# print(data)
 
 class NpEncoder(json.JSONEncoder):
     def default(self, obj):

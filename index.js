@@ -144,6 +144,7 @@ let UserSchema = new mongoose.Schema({
   history: {
     type: String,
     required: false,
+    default: ''
   },
   groups: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -373,6 +374,22 @@ app.get('/dashboard', isAuth, function(req, res) {
         title: "Log In | "
       })
     } else {
+      // console.log(user)
+      const spawn = require("child_process").spawn;
+      const pythonProcess = spawn('python3',["./script.py", user.history]);
+        pythonProcess.stdout.on('data', (data) => {
+        console.log(data.toString())
+        });
+        // Handle error output
+        pythonProcess.stderr.on('data', (data) => {
+          // As said before, convert the Uint8Array to a readable string.
+          console.log(String.fromCharCode.apply(null, data));
+        });
+    
+        pythonProcess.on('exit', (code) => {
+          console.log("Process quit with code : " + code);
+        });
+
       let message = req.session.error;
       req.session.error = ""
       res.render('dashboard', {
@@ -1144,26 +1161,37 @@ app.post('/search', (req, res) => {
     let user = User.findOne({
       _id: req.session.user,
     }, function(err, user) {
-      if (!user) {
-        res.render('search', {
-          isAuth: req.session.isAuth,
-          title: req.body.text
-        });
-      }
-      else{
+      if (user) {
         let hist = req.body.text;
-        // var newvalues = { $set: {"history": req.body.text } };
-        // user.updateOne({name : req.params.name}, newvalues, function (err, data) {
         if (err) throw err;
-          // });
+         
           User.updateOne(
-            { "_id": req.session.user },
+            { _id: req.session.user },
             { $set: { "history": req.body.text} });
-          console.log(user.history);
+
+            User.findByIdAndUpdate(req.session.user, 
+              {
+                 $set : {
+                      history: hist,
+                  }
+              },
+              (err, user) => {
+                   if (err) console.log(err)
+                 }
+              );
+          // console.log(user)
           res.render('search', {
             isAuth: req.session.isAuth,
             title: req.body.text
           });
+      }
+      else{
+        // console.log("user.history");
+       
+        res.render('search', {
+          isAuth: req.session.isAuth,
+          title: req.body.text
+        });
       }
     })
   
@@ -1171,7 +1199,7 @@ app.post('/search', (req, res) => {
     
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 server.listen(PORT, function() {
   console.log(`Server started at port ${PORT}`);
 })
