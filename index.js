@@ -39,7 +39,7 @@ const cors = require('cors');
 const cron = require('node-cron');
 
 //connecting to mongodb
-const uri = 'mongodb+srv://reco_system:ankit123@cluster0.hvhmr.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://shash:stark123@cluster0.td1gn.mongodb.net/?retryWrites=true&w=majority';
 
 // const uri = process.env.MONGODB_URI;
 mongoose.connect(uri || "mongodb://localhost:27017/touchDB", {
@@ -144,7 +144,7 @@ let UserSchema = new mongoose.Schema({
   history: {
     type: String,
     required: false,
-    default: ''
+    default: 'Avatar'
   },
   groups: [{
     type: mongoose.Schema.Types.ObjectId,
