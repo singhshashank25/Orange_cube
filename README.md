@@ -1,10 +1,9 @@
-Orange_Cube
-# Project Title
+# **Orange_Cube**
 
 Orange_Cube is a web development project. It is designed and developed by Shashank Singh for Microsoft Engage. It is a project related to movie recommendation. Movie is recommended on the basis of search history and it also recommends 6 other movies which are of the dame genre as of the one we had searched. Additional feature is that two or more people can create room together and can enjoy hte movie together.
 
 
-#To start the app
+# To start the app
 - Run data.py file(python3)
 - npm install
 - node index
