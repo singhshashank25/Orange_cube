@@ -1,6 +1,6 @@
 # **Orange_Cube**
 
-Orange_Cube is a web development project. It is designed and developed by Shashank Singh for Microsoft Engage. It is a project related to movie recommendation. Movie is recommended on the basis of search history and it also recommends 6 other movies which are of the same genre as of the one we had searched. Additional feature is that two or more people can create room together and can enjoy hte movie together.
+Orange_Cube is a web development project. It is designed and developed by Shashank Singh for Microsoft Engage. It is a project related to movie recommendation. Movie is recommended on the basis of search history and it also recommends 6 other movies which are of the same genre as of the one we had searched. Additional feature is that two or more people can create room together and can enjoy the movie together.
 
 
 # To start the app
@@ -32,7 +32,7 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 6. **Mute / Unmute Audio** : Users are given the option to either turn on or off their mic during call
 7. **Mute All Member** : A user can mute other users in the call to avoid unwanted sound
 8. **Name on Hovering** : While hovering on a video box one can see the Member name
-20. **Chat** : While watching the movie , users can chat simultanoeously
+20. **Chat** : While watching the movie , users can chat simultaneously
 11. **Sign Up / Log In** : If user watch moives regularly and hosts regular room and want to store the chats, list of created room and quickly remind people of the room then they can log in
 52. **Reminders** : Server automatically remind users about their room at the time of their room
 22. **Contact Us** : User can contact us and give feedback which will help me 
@@ -65,8 +65,8 @@ Orange_Cube is a web development project. It is designed and developed by Shasha
 
 
 # Challenges
-- **cold-start problelm** : Recommendation for new user and new movies was a problem for me. So for new user I recommended most popular movie and new movie are recommend to user according to genres and keyword
-- **integration of python and Nodejs** : using "require("child_process").spawn" I got rid of this
+- **Cold-start Problem** : Recommendation for new user and new movies was a problem for me. So for new user I recommended most popular movie and new movie are recommend to user according to genres and keyword
+- **Integration of Python and Nodejs** : using "require("child_process").spawn" I got rid of this
 
 
 
